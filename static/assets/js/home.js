@@ -179,7 +179,7 @@ const SplashT = [
   "Playing games is better than working no cap",
   "Stanislas will NEVER block this lol",
   "Check out the settings page",
-  "No more blocked website ?",
+  "No more blocked websites?",
 ];
 
 let SplashI = Math.floor(Math.random() * SplashT.length);
