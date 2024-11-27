@@ -13,6 +13,12 @@ img {
    padding-top: 5px;
 }
 
+.INImg {
+   width: 40%;
+   height: 100%;
+   padding-top: 5px;
+}
+
 .f-nav-container {
    min-width: 5vw;
    min-height: 10vh;
