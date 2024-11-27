@@ -14,7 +14,7 @@ if (
   const popup = open("about:blank", "_blank");
   if (!popup || popup.closed) {
     alert(
-      "Si tu vois Wikipedia comme nom du site, c'est fait exprès pour cacher le site. Si tu lis ce message partages le site à tes amis stp",
+      "If you see Wikipedia as the site name, it's done on purpose to hide the site. If you’re reading this message, please share the site with your friends.",
     );
   } else {
     const doc = popup.document;
