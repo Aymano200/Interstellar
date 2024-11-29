@@ -14,7 +14,7 @@ if (
   const popup = open("about:blank", "_blank");
   if (!popup || popup.closed) {
     alert(
-      "If you see Wikipedia as the site name, it's done on purpose to hide the site. If you’re reading this message, please share the site with your friends.",
+      "If you see Wikipedia as the site name, it's done on purpose to hide the site. If google search results are bugged switch the browser in settings.",
     );
   } else {
     const doc = popup.document;
