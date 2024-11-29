@@ -19,7 +19,7 @@ if (nav) {
   }
   const html = `
 <div id="icon-container">
-    <a class="icon" href="/./"><img alt="nav" src="${LogoUrl} class="responsive/></a>
+    <a class="icon" href="/./"><img alt="nav" id="INImg" src="${LogoUrl}"/></a>
 </div>
 <div class="f-nav-right">
     <a class="navbar-link" href="/./up"><i class="fa-solid fa-gamepad navbar-icon"></i><an>&#71;&#97;</an><an>&#109;&#101;&#115;</an></a>
