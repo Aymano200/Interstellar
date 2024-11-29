@@ -1,12 +1,3 @@
-// Dynamic
-document.addEventListener("DOMContentLoaded", () => {
-  if (
-    localStorage.getItem("dy") === null ||
-    localStorage.getItem("dy") === undefined
-  ) {
-    localStorage.setItem("dy", "false");
-  }
-});
 
 // Nav
 const nav = document.querySelector(".f-nav");
