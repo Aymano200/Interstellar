@@ -76,8 +76,3 @@ body {
    position: absolute;
    z-index: 99;
 }
-
-img.responsive-logo {
-  max-width: 100%;
-  height: auto;
-}
