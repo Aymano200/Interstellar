@@ -1,5 +1,6 @@
 let appInd;
 const g = window.location.pathname === "/up";
+const h = window.location.pathname === "/help";
 const a = window.location.pathname === "/yz";
 const c = window.location.pathname === "/gt";
 const t = window.top.location.pathname === "/rx";
