@@ -7,7 +7,7 @@
    align-items: center;
 }
 #INImg {
-   width: 100px;  /* Set the desired width */
+   width: 100%;  /* Set the desired width */
 }
 
 img {
