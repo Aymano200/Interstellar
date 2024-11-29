@@ -17,6 +17,8 @@ if (nav) {
     <a class="navbar-link" href="/./yz"><i class="fa-solid fa-phone navbar-icon"></i><an>&#65;&#112;</an><an>&#112;&#115;</an></a>
     ${window.top.location.pathname === "/rx" ? "" : '<a class="navbar-link" href="/./rx"><i class="fa-solid fa-laptop navbar-icon"></i><an>&#84;&#97;</an><an>&#98;&#115;</an></a>'}
     <a class="navbar-link" href="/./vk"><i class="fa-solid fa-gear navbar-icon settings-icon"></i><an>&#83;&#101;&#116;</an><an>&#116;&#105;&#110;&#103;</an></a>
+    <a class="navbar-link" href="/./help"><i class="fa-solid fa-question-circle navbar-icon"></i><span>Help</span></a>
+
 </div>`;
   nav.innerHTML = html;
 }
