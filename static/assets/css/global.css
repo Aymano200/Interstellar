@@ -76,3 +76,25 @@ body {
    position: absolute;
    z-index: 99;
 }
+.faq-container {
+  width: 80%;
+  margin: 20px auto;
+  background: var(--background-column);
+  border-radius: 5px;
+  padding: 20px;
+}
+
+.faq-item {
+  margin-bottom: 20px;
+}
+
+.faq-item h4 {
+  font-weight: 800;
+  font-size: 18px;
+  color: var(--text-primary);
+}
+
+.faq-item p {
+  font-size: 16px;
+  color: var(--text-primary);
+}
