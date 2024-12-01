@@ -12,4 +12,17 @@
       "dest": "index.js"
     }
   ]
+},
+{
+  "rewrites": [
+    {
+      "source": "/docs",
+      "destination": "https://standns.mintlify.dev/docs"
+    },
+    {
+      "source": "/docs/:match*",
+      "destination": "https://standns.mintlify.dev/docs/:match*"
+    }
+  ]
 }
+
