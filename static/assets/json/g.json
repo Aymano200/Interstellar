@@ -6,11 +6,6 @@
     "custom": "true"
   },
   {
-    "name": "! Interstellar FAQ/Docs",
-    "image": "/assets/media/icons/help_center_googlefonts.png",
-    "link": "https://docs.gointerstellar.app",
-    "categories": ["all"]
-  },
   {
     "name": "Fancade",
     "link": "https://play.fancade.com",
