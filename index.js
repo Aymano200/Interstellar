@@ -132,7 +132,7 @@ app.use("/fq", cors({ origin: true }));
 
 const routes = [
   { path: "/yz", file: "apps.html" },
-  { path: "/help", file: "help.html" },
+  { path: "/help", file: "https://standns.mintlify.app/faq" },
   { path: "/up", file: "games.html" },
   { path: "/vk", file: "settings.html" },
   { path: "/rx", file: "tabs.html" },
