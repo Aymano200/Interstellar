@@ -11,9 +11,7 @@
       "src": "/(.*)",
       "dest": "index.js"
     }
-  ]
-},
-{
+  ],
   "rewrites": [
     {
       "source": "/docs",
@@ -25,4 +23,3 @@
     }
   ]
 }
-
