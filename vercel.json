@@ -6,10 +6,16 @@
       "use": "@vercel/node"
     }
   ],
-  "routes": [
+  "redirects": [
     {
-      "src": "/(.*)",
-      "dest": "index.js"
+      "source": "/(.*)",
+      "destination": "index.js",
+      "permanent": true
+    },
+    {
+      "source": "/docs(.*)",
+      "destination": "https://standns.mintlify.app/faq",
+      "permanent": true
     }
   ]
 }
