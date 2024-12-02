@@ -6,6 +6,11 @@
     "custom": "true"
   },
   {
+    "name": "Call Of War",
+    "link": "https://www.callofwar.com/",
+    "image": "/assets/media/icon/callofwar.jpg",
+    "categories": ["all"]
+  },
   {
     "name": "Fancade",
     "link": "https://play.fancade.com",
