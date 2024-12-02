@@ -6,14 +6,10 @@
       "use": "@vercel/node"
     }
   ],
-  "rewrites": [
+  "routes": [
     {
-      "source": "/docs",
-      "destination": "https://standns.mintlify.dev/docs"
-    },
-    {
-      "source": "/docs/:match*",
-      "destination": "https://standns.mintlify.dev/docs/:match*"
+      "src": "/(.*)",
+      "dest": "index.js"
     }
   ]
 }
