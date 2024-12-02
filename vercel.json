@@ -9,11 +9,11 @@
   "routes": [
     {
       "src": "/(.*)",
-      "red": "index.js"
+      "dest": "index.js"
     },
     {
       "src": "/docs(.*)",
-      "red": "https://standns.mintlify.app/faq"
+      "dest": "https://standns.mintlify.app/faq"
     }
   ]
 }
