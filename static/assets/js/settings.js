@@ -364,3 +364,29 @@ function getRandomURL() {
 function randRange(min, max) {
   return Math.floor(Math.random() * (max - min) + min);
 }
+// Existing code...
+
+// Add the new theme functions here
+function saveTheme(themeName) {
+  localStorage.setItem('selectedTheme', themeName);
+  applyTheme(themeName);
+}
+
+function applyTheme(themeName) {
+  const themeLink = document.getElementById('theme-link');
+  themeLink.href = `/static/assets/css/themes/${themeName}.css`;
+}
+
+window.addEventListener('load', () => {
+  const savedTheme = localStorage.getItem('selectedTheme');
+  if (savedTheme) {
+    applyTheme(savedTheme);
+  }
+});
+
+function themeChange(selectElement) {
+  const selectedValue = selectElement.value;
+  saveTheme(selectedValue);
+}
+
+// End of the file...
