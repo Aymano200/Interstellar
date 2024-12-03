@@ -13,12 +13,6 @@ import fetch from "node-fetch";
 import config from "./config.js";
 import type { VercelResponse } from '@vercel/node';
  
-export default function handler(response: VercelResponse) {
-  response.setHeader('Cache-Control', 'no-store');
- 
-  return response.status(200).json({ name: 'John Doe' });
-}
-
 console.log(chalk.yellow("🚀 Starting server..."));
 
 const __dirname = process.cwd();
