@@ -1,26 +1,34 @@
+@import url("https://unpkg.com/@catppuccin/palette/css/catppuccin.css");
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
 
 :root {
-   /* Background Variables */
-   --background-image: url("/./assets/media/background/full-main.png"); /* Background Image */
+   --background-image: var(--ctp-frappe-base) /*base*/;
+   --background: #1e1e2e;
+   --background-input: var(--ctp-frappe-mantle) /*mantle*/;
+   --background-dark: #11111b /*crust*/;
+
+   --text-primary: var(--ctp-frappe-blue) /*blue*/;
+   --background-settings: var(--ctp-frappe-surface0) /*surface0*/;
+   --background-settings-buttons: var(--ctp-frappe-surface1) /*surface1*/;
+   --input: var(--ctp-frappe-surface0) /*surface0*/;
+   --background-column: var(--ctp-frappe-crust) /*crust*/;
+
+   --text-primary: var(--ctp-frappe-text) /*text*/;
+   --text-secondary: var(--ctp-frappe-subtext1) /*subtext1*/;
+   --text-placeholder: var(--ctp-frappe-subtext0) /*subtext0*/;
+   --background-color: var(--ctp-frappe-base) /* base */;
+   --tab-active-background: var(--ctp-frappe-mantle) /* mantle */;
+
+   /* Existing values */
    --backdrop-filter: blur(10px) brightness(80%); /* Nav Backdrop filter */
    --background-nav: rgba(255, 255, 255, 0.02); /* Nav Background */
-   --background-color: #222; /* Main Background Color */
-   --background-input: #4545459e; /* Input Field Background Color */
-   --background-column: #353535; /* Background for Apps Container */
-   --background-settings: #2a2a2a; /* Settings Card Background */
    --background-buttons: #333; /* Button Background Color */
-   --tab-active-background: #444; /* Accent Color for Tabs */
    --tab-inactive-background: ; /* Background Color for Tabs Not In Use */
    --slider-active-background: #4caf50; /* Active Slider Background Color */
    --slider-inactive-background: #ccc; /*  Slider Background Color */
    --nav-image: url("/./assets/media/favicon/main.png"); /* Nav Logo */
-   /* Text Variables */
-   --text-primary: #fff; /* Primary Text Color */
    --text-dark: #555; /* Dark Text Color for Error Page, Scrollbar, and Particles */
-   --text-placeholder: #aaa; /* Placeholder Text Color */
-   /* Other Variables */
    --save-button: #4caf50; /* Save Button, Typically Green */
    --reset-button: #f44336; /* Reset Button, Typically Red */
    --import-button: #009688; /* Import Button, Typically Teal */
@@ -75,4 +83,31 @@ body {
    top: 0%;
    position: absolute;
    z-index: 99;
+}
+
+input,
+select,
+.column,
+.key-form,
+button,
+.key-button,
+.searchbar {
+   background-color: var(--ctp-frappe-surface0) /*surface0*/;
+   color: var(--ctp-frappe-subtext1) /*subtext1*/;
+}
+
+.settings-card {
+   background-color: var(--ctp-frappe-mantle) /*mantle*/;
+}
+
+input:checked + .slider-round {
+   background-color: #000;
+}
+
+.f-nav-right .navbar-link {
+   color: var(--ctp-frappe-mauve) /*mauve*/;
+}
+
+.f-nav-right:hover .navbar-link:hover {
+   color: var(--ctp-frappe-blue) /*blue*/;
 }
