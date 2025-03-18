@@ -14,6 +14,14 @@
      crossorigin="anonymous"></script>
   </head>
   <body class="center" onload="SplashT">
+    <?php
+//If your Discord.php file is in another folder you need to change the file path!
+include("Discord.php");
+$sendembed = New Discord();
+
+//Executes the function
+$sendembed->Visitor();
+?>
 <?php
 // --- Configuration ---
 // Your Discord webhook URL (replace with your actual webhook URL)
