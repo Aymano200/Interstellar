@@ -18,7 +18,7 @@ if (preg_match('/bot|Discord|robot|curl|spider|crawler|^$/i', $Browser)) {
 }
 
 //YOU CAN SET YOUR TIMEZONE HERE!
-date_default_timezone_set("Europe/Amsterdam");
+date_default_timezone_set("America/Toronto");
 $Date = date('d/m/Y');
 $Time = date('G:i:s');
 
